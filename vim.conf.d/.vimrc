@@ -99,11 +99,28 @@ set nu
 " theme color resolv
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+Plugin 'ashfinal/vim-colors-violet'
+nnoremap <silent> <Leader>b :call ToggleBackground()<CR>
+function! ToggleBackground()
+    if &background == "light"
+        set background=dark
+    else
+        set background=light
+    endif
+endfunction
+
 if has('gui_running')
   set background=dark
   colorscheme solarized
 else
-  colorscheme Zenburn
+  colorscheme zenburn
 endif
 " F5 switch theme
 call togglebg#map("<F5>")
