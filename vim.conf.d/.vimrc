@@ -95,3 +95,26 @@ Plugin 'kien/ctrlp.vim'
 
 " display line num
 set nu
+
+" theme color resolv
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme Zenburn
+endif
+" F5 switch theme
+call togglebg#map("<F5>")
+
+" file tree struct browser
+Plugin 'scrooloose/nerdtree'
+" tab keys
+Plugin 'jistr/vim-nerdtree-tabs'
+" avoid display .pyc
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" status tools 
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
