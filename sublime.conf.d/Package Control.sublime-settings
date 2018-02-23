@@ -1,0 +1,26 @@
+{
+	"bootstrapped": true,
+	"channels":
+	[
+		"https://packagecontrol.io/channel_v3.json",
+		"https://github.com/lisuke/i_conf/raw/master/sublime.conf.d/channel_v3.json"
+	],
+	"http_proxy": "192.168.1.11:8087",
+	"https_proxy": "192.168.1.11:8087",
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Djaneiro",
+		"Flask Completions",
+		"GitGutter",
+		"Gitignore",
+		"Markdown Preview",
+		"MarkdownEditing",
+		"Package Control",
+		"requirementstxt",
+		"SideBarEnhancements",
+		"Virtualenv"
+	]
+}
