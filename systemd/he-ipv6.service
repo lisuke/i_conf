@@ -1,0 +1,24 @@
+# Author: lisuke <1657787678@qq.com>
+# Use Case: You registered a He.net IPv6 tunnel, and want it connected automatically
+#           without entering commands every startup.
+[Unit]
+Description=Daemon to start He.net IPv6
+Wants=network-online.target
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/ip tunnel add he-ipv6 mode sit \
+          remote 66.220.18.42 local 210.43.37.250 ttl 255 ; \
+          /usr/bin/ip link set he-ipv6 up ; \
+          /usr/bin/ip addr add 2001:470:c:81::2/64 dev he-ipv6 ; \
+          /usr/bin/ip route add ::/0 dev he-ipv6 ; \
+          /usr/bin/ip -f inet6 addr
+ExecStop=/usr/bin/ip route delete ::/0 dev he-ipv6 ; \
+         /usr/bin/ip -6 addr del 2001:470:c:81::2/64 dev he-ipv6 ; \
+         /usr/bin/ip link set he-ipv6 down ; \
+         /usr/bin/ip tunnel del he-ipv6
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=VNC Server for X11
+After= multi-user.target
+
+[Service]
+Type= simple
+ExecStart= /usr/bin/x11vnc -6 -listen6 2001:0:53aa:64c:82c:b077:20a7:1e3e%teredo -auth /home/lisuke/.Xauthority -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pass -rfbport 5900 -shared -o /var/log/x11vnc.log
+
+[Install]
+WantedBy = multi-user.target
